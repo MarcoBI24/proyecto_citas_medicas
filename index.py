@@ -36,7 +36,8 @@ class Sistema():
             if cuenta.dni == dni and cuenta.contraseña ==  contraseña:
                 cuenta.sesion_iniciada = True
                 print("Sesion iniciada...")
-            print("Nombre de usuario o contraseña incorrectos...")
+                return
+        print("Nombre de usuario o contraseña incorrectos...")
         
     def cerrar_sesion(self, dni):
         for cuenta in self.cuentas:
@@ -46,4 +47,22 @@ class Sistema():
                 return
             print("NO SE PUDO CERRAR SESION..")
     
+    
+
+
+
+while True:
+    titulo = """🅲🅸🆃🅰🆂 🅼🅴🅳🅸🅲🅰🆂
+"""
+    print(titulo)
+    print("[1] Iniciar sesion")
+    sistema = Sistema()
+    print("[2] Registrarte")
+    opcion = input()
+    if opcion == "1":
+        dni = input("DNI : ")
+        contraseña = input("Contraseña : ")
+        sistema.iniciar_sesion(dni,contraseña)
+    elif opcion == "2":
+        sistema.crear_cuenta()
 
